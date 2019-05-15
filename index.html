@@ -7,21 +7,29 @@
 </head>
 <body>
 
-<canvas id="myCanvas" width="1000" height="750" onmousedown="click_event(event)"></canvas>
+<canvas id="myCanvas" width="1000" height="563" onmousedown="click_event(event)"></canvas>
 
 <h1 id="Person"> Person </h1>
 <h1 id="Death"> Death </h1>
 
 <script>
-  console.log("load");
   var canvas = document.getElementById("myCanvas");
   var context = canvas.getContext('2d');
   var items_loaded = 0;
   var info_location = 0;
+  var drawn = false;
   var people_names = ["Henry VIII","Catherine of Aragon","Anne Boleyn","Jane Seymour","Anne of Cleaves","Catherine Howard","Catherine Parr", "Mary I","Elizabeth I","Edward VI"];
   var people_death = ["Natural Causes","Divorced-Natural Causes","Beheaded-Executed","Died-Natural Causes","Divorced-Natural Causes","Beheaded-Executed","Survived-Natural Causes","Natural Causes","Natural Causes","Natural Causes-15 Years Old"];
   var people_image = ["HenryVIII.png","CatherineOfAragon.png","AnneBoleyn.png","JaneSeymour.png","AnneOfCleaves.png","CatherineHoward.png","CatherineParr.png","MaryI.png","ElizabethI.png","EdwardVI.png"];
   var people_locations = [[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]];
+  function drawImages() {
+    if (drawn == false && items_loaded === 10) {
+      // Draw drawImages
+      // context.drawImage(example, 0, 0, 200, 200);
+    } else if (drawn == false) {
+      console.log("load");
+    }
+  }
   function make_base() {
     context.clearRect(30,660,970,90);
     people_image.forEach(function(element){
@@ -31,12 +39,6 @@
         items_loaded++;
       }
     });
-    /*while (true) {
-      console.log(items_loaded);
-      if (items_loaded==10) {
-        break;
-      }
-    }*/
   }
   make_base();
   function click_event(event) {
@@ -83,6 +85,7 @@
   make_base();
   function main_loop() {
     make_items();
+    drawImages();
   }
   var t=setInterval(main_loop(),500);
 </script>
