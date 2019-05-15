@@ -17,14 +17,23 @@
   var context = canvas.getContext('2d');
   var items_loaded = 0;
   var info_location = 0;
-  var people_names = [];
-  var people_death = [];
-  var people_locations = [];
+  var people_names = ["Henry VIII","Catherine of Aragon","Anne Boleyn","Jane Seymour","Anne of Cleaves","Catherine Howard","Catherine Parr", "Mary I","Elizabeth I","Edward VI"];
+  var people_death = ["Natural Causes","Divorced-Natural Causes","Beheaded-Executed","Died-Natural Causes","Divorced-Natural Causes","Beheaded-Executed","Survived-Natural Causes","Natural Causes","Natural Causes","Natural Causes-15 Years Old"];
+  var people_image = ["HenryVIII.png","CatherineOfAragon.png","AnneBoleyn.png","JaneSeymour.png","AnneOfCleaves.png","CatherineHoward.png","CatherineParr.png","MaryI.png","ElizabethI.png","EdwardVI.png"];
+  var people_locations = [[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]];
   function make_base() {
-    var base_image = new Image();
-    base_image.src = 'route-map.png';
-    base_image.onload = function(){
-      items_loaded += 1;
+    context.clearRect(30,660,970,90);
+    people_image.forEach(function(element){
+      var base_image = new Image();
+      base_image.src = "./"+element;
+      base_image.onload = function(){
+        items_loaded++;
+      }
+    });
+    while (true) {
+      if (items_loaded==10) {
+        break;
+      }
     }
   }
   function click_event(event) {
@@ -32,10 +41,10 @@
     var x = event.clientX - rect.left;
     var y = event.clientY - rect.top;
     // Define info_location when info button clicked (Based on location)
-    if () {
+    if (x>=0 && x<=100 && y>=0 && y>= 100) {
       info_location = 0;
     }
-    if () {
+    /*if () {
       info_location = 1;
     }
     if () {
@@ -44,17 +53,33 @@
     if () {
       info_location = 3;
     }
+    if () {
+      info_location = 4;
+    }
+    if () {
+      info_location = 5;
+    }
+    if () {
+      info_location = 6;
+    }
+    if () {
+      info_location = 7;
+    }
+    if () {
+      info_location = 8;
+    }
+    if () {
+      info_location = 9;
+    }*/
     window.info_location = info_location;
-    make_items()
   }
   function make_items() {
-    context.clearRect(30,660,970,90);
     document.getElementById("Person").innerHTML = "Person: " + people_names[info_location];
-    document.getElementById("Death").innerHTML = "How They Died: " + people_names[info_location];
+    document.getElementById("Death").innerHTML = "How They Died: " + people_death[info_location];
     // Place Images
   }
+  make_base();
   function main_loop() {
-    make_base()
     make_items();
   }
   var t=setInterval(main_loop(),500);
