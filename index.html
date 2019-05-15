@@ -22,7 +22,7 @@
   var people_death = ["Natural Causes","Divorced-Natural Causes","Beheaded-Executed","Died-Natural Causes","Divorced-Natural Causes","Beheaded-Executed","Survived-Natural Causes","Natural Causes","Natural Causes","Natural Causes-15 Years Old"];
   var people_image = ["HenryVIII.png","CatherineOfAragon.png","AnneBoleyn.png","JaneSeymour.png","AnneOfCleaves.png","CatherineHoward.png","CatherineParr.png","MaryI.png","ElizabethI.png","EdwardVI.png"];
   var people_locations = [[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]];
-  /*function make_base() {
+  function make_base() {
     context.clearRect(30,660,970,90);
     people_image.forEach(function(element){
       var base_image = new Image();
@@ -37,7 +37,7 @@
       }
     }
   }
-  function click_event(event) {
+  /*function click_event(event) {
     var rect = canvas.getBoundingClientRect();
     var x = event.clientX - rect.left;
     var y = event.clientY - rect.top;
