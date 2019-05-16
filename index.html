@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<canvas id="myCanvas" width="1000" height="800" onmousedown="click_event(event)"></canvas>
+<canvas id="myCanvas" width="1040" height="800" onmousedown="click_event(event)"></canvas>
 
 <h1 id="Person"> Person </h1>
 <h1 id="Death"> Death </h1>
@@ -22,7 +22,7 @@
   var people_death = ["Natural Causes","Divorced-Natural Causes","Beheaded-Executed","Died-Natural Causes","Divorced-Natural Causes","Beheaded-Executed","Survived-Natural Causes","Natural Causes","Natural Causes","Natural Causes-15 Years Old",""];
   var people_image = ["HenryVIII.png","CatherineOfAragon.png","AnneBoleyn.png","JaneSeymour.png","AnneOfCleaves.png","CatherineHoward.png","CatherineParr.png","MaryI.png","ElizabethI.png","EdwardVI.png"];
   var people_image_loaded = [];
-  var people_locations = [[375,50],[20,300],[190,300],[260,300],[430,300],[600,300],[770,300],[20,550],[190,550],[260,550]];
+  var people_locations = [[450,50],[20,300],[190,300],[360,300],[530,300],[700,300],[870,300],[20,550],[190,550],[360,550]];
   function canvas_arrow(context, fromx, fromy, tox, toy){
     var headlen = 10;   // length of head in pixels
     var angle = Math.atan2(toy-fromy,tox-fromx);
