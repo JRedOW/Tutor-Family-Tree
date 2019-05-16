@@ -36,7 +36,7 @@
       var base_image = new Image();
       base_image.src = "./"+element;
       base_image.onload = function(){
-        items_loaded++;
+        items_loaded+= 1;
       }
     });
   }
@@ -87,7 +87,7 @@
     make_items();
     drawImages();
   }
-  var t=setInterval(main_loop(),500);
+  var t=setInterval("main_loop()",500);
 </script>
 
 </body>
