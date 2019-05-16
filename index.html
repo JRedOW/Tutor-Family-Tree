@@ -27,7 +27,6 @@
   function canvas_arrow(context, fromx, fromy, tox, toy){
     var headlen = 5;   // length of head in pixels
     var angle = Math.atan2(toy-fromy,tox-fromx);
-    context.beginPath();
     context.moveTo(fromx, fromy);
     context.lineTo(tox, toy);
     context.lineTo(tox-headlen*Math.cos(angle-Math.PI/6),toy-headlen*Math.sin(angle-Math.PI/6));
@@ -43,7 +42,9 @@
       });
       arrow_locs.forEach(function(element){
         console.log("arrow");
+        context.beginPath();
         canvas_arrow(context,element[0],element[1],element[2],element[3]);
+        context.stroke();
       });
     } else if (drawn == false) {
       console.log(items_loaded);
