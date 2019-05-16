@@ -21,6 +21,7 @@
   var people_names = ["Henry VIII","Catherine of Aragon","Anne Boleyn","Jane Seymour","Anne of Cleaves","Catherine Howard","Catherine Parr", "Mary I","Elizabeth I","Edward VI",""];
   var people_death = ["Natural Causes","Divorced-Natural Causes","Beheaded-Executed","Died-Natural Causes","Divorced-Natural Causes","Beheaded-Executed","Survived-Natural Causes","Natural Causes","Natural Causes","Natural Causes-15 Years Old",""];
   var people_image = ["HenryVIII.png","CatherineOfAragon.png","AnneBoleyn.png","JaneSeymour.png","AnneOfCleaves.png","CatherineHoward.png","CatherineParr.png","MaryI.png","ElizabethI.png","EdwardVI.png"];
+  var people_image_loaded = [];
   var people_locations = [[375,50],[50,300],[200,300],[350,300],[500,300],[650,300],[800,300],[50,550],[200,550],[350,550]];
   function canvas_arrow(context, fromx, fromy, tox, toy){
     var headlen = 10;   // length of head in pixels
@@ -34,7 +35,7 @@
   function drawImages() {
     if (drawn == false && items_loaded === 10) {
       loopnum = 0;
-      people_image.forEach(function(element){
+      people_image_loaded.forEach(function(element){
         context.drawImage(element, people_locations[loopnum][0], people_locations[loopnum][1], 100, 200);
         loopnum++;
       });
@@ -45,9 +46,10 @@
   function make_base() {
     context.clearRect(30,660,970,90);
     people_image.forEach(function(element){
-      var base_image = new Image();
-      base_image.src = "./"+element;
-      base_image.onload = function(){
+      var image_loading = new Image();
+      image_loading.src = "./"+element;
+      people_image_loaded.push(image_loading);
+      image_loading.onload = function(){
         items_loaded++;
       }
     });
