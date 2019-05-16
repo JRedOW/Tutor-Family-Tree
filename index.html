@@ -23,6 +23,7 @@
   var people_image = ["HenryVIII.png","CatherineOfAragon.png","AnneBoleyn.png","JaneSeymour.png","AnneOfCleaves.png","CatherineHoward.png","CatherineParr.png","MaryI.png","ElizabethI.png","EdwardVI.png"];
   var people_image_loaded = [];
   var people_locations = [[425,50],[20,300],[190,300],[360,300],[530,300],[700,300],[870,300],[20,550],[190,550],[360,550]];
+  var arrow_locs = [[500,260,95,290],[500,260,265,290],[500,260,435,290],[500,260,605,290],[500,260,775,290],[500,260,945,290],[95,510,95,540],[265,510,265,540],[435,510,435,540]];
   function canvas_arrow(context, fromx, fromy, tox, toy){
     var headlen = 10;   // length of head in pixels
     var angle = Math.atan2(toy-fromy,tox-fromx);
@@ -38,6 +39,9 @@
       people_image_loaded.forEach(function(element){
         context.drawImage(element, people_locations[loopnum][0], people_locations[loopnum][1], 150, 200);
         loopnum++;
+      });
+      arrow_locs.forEach(function(element){
+        canvas_arrow(context,element[0],element[1],element[2],element[3]);
       });
     } else if (drawn == false) {
       console.log(items_loaded);
