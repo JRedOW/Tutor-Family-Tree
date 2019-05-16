@@ -44,7 +44,6 @@
         loopnum++;
       });
       arrow_locs.forEach(function(element){
-        console.log("arrow");
         canvas_arrow(context,element[0],element[1],element[2],element[3],element[4]);
       });
     } else if (drawn == false) {
@@ -72,6 +71,7 @@
     people_locations.forEach(function(element){
       if (x>=element[0] && x<=element[0]+150 && y>=element[1] && y<= element[1]+200) {
         info_location = loopnum;
+        make_items();
       }
       loopnum++;
     });
@@ -83,7 +83,6 @@
   }
   make_base();
   function main_loop() {
-    make_items();
     drawImages();
   }
   var t=setInterval("main_loop()",500);
