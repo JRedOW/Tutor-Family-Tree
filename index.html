@@ -60,7 +60,7 @@
     var y = event.clientY - rect.top;
     // Define info_location when info button clicked (Based on location)
     loopnum = 0;
-    people_locations.forEach(funtion(element){
+    people_locations.forEach(function(element){
       if (x>=element[0] && x<=element[0]+150 && y>=element[1] && y<= element[1]+200) {
         info_location = loopnum;
       }
